@@ -1,0 +1,64 @@
+﻿@model IEnumerable<WebApplication1.Models.ProductSalesPlans>
+@{
+    ViewData["Title"] = "Планы продаж продукции";
+}
+
+<h1>Планы продаж продукции</h1>
+
+<p>
+    <a asp-action="Create">Создать запись</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlannedImplementationVolume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductionTypeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YearInfo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuarterInfo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ActualImplementationVolume)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlannedImplementationVolume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductionTypeId)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearInfo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuarterInfo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActualImplementationVolume)
+            </td>
+            <td>
+                    <a asp-action="Редактировать" asp-route-id="@item.Id">Редактировать</a> |
+                    <a asp-action="Детали" asp-route-id="@item.Id">Детали</a> |
+                    <a asp-action="Удалить" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
